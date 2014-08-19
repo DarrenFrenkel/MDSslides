@@ -3,7 +3,58 @@ title: Melb Django School Slides
 style: style.css
 output: slides.html
 
+-- sm
+
+## How do web Apps work
+
+- HTTP - is the protocol that we use to communicate between client and server
+	- basically how our browser communicates with a server.
+- HTTP protocol - by protocol, I mean there is specific information that a client has to send to a server and vice versa to communicate properly
+- On the client side, the browser initiates communication to the server via a url with a request (http request) and sends over 3 main components:
+	-  HTTP Request line
+	-  HTTP Request Headers 
+	-  HTTP Request Body
+-  On the Server side, the server receives the request and then responds (http response) by sending back 3 main components to the client:
+	-  HTTP Response Status-Line
+	-  HTTP Response Headers
+	-  HTTP Response Body
+-- md
+
+## The Request
+
+- HTTP Request line - contains the following: 
+	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE 
+	- URI - is the specific page you're requesting (eg. index.html) 
+	- Protocol Version - is the version of HTTP (eg. HTTP/1.1)
+- HTTP Request Header: - is a list of key/value pairs that is mainly about the client's environment
+	- host - is the main key/value pair of the Request Header - It gives us our server location (eg. example.com)
+- HTTP Request Body: - an option body message
+
+-- md
+
+## The Response
+
+- HTTP Response Status-Line:
+	- Protocol Version - is the version of HTTP (eg. HTTP/1.1)
+	- Status Code - (eg. 200, 404)
+	- Description - a brief description of the status code (eg. ok, file now found)
+- HTTP Response Header:
+	-  is a list of key/value pairs that tells us about our server environment (eg.Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux))
+- HTTP Response Body:
+	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.   
+
+-- md
+
+## Application servers vs web servers
+
+* A web server typically returns static web pages, ie we place an http request for a specific file name on a server (the url) and the web server returns that file 
+* However, An application server allows us to use business logic to return content dynamically. 
+	* ie we could route a url to a view and then that view could return a template or a json object.
+	* or we could easily change the template that the view renders or change the type of data it returns
+* Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a page. 
+
 --
+
 
 ##Python/Package Manager
 - For all mac/linux users python comes pre-installed, for windows users time to upgrade (use vagrant)
@@ -85,17 +136,16 @@ output: slides.html
 			- urls.py
 			- wsgi.py
 
--- md
+-- sm
 
 ## Django Project File Overview
 
 - __Outer mysite/__  - is just a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
 - __requirements.txt__ -  doesn’t come out of the box, you need to create the file yourself.
 	- place the name of all your third party python libraries inside this file and pip will install them - `$pip -R requirements.txt`
-- __manage.py__ -  A command-line utility that lets you interact with this Django project in various ways.
-	- Its two main activities are:
-		- starting your local server - `$./manage.py runserver`
-		- Accessing your python shell - `$./manage.py shell`
+- __manage.py__ -  A command-line utility that lets you interact with this Django project in various ways. Its two main activities are:
+	- starting your local server - `$./manage.py runserver`
+	- Accessing your python shell - `$./manage.py shell`
 
 --
 
