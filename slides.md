@@ -24,10 +24,10 @@ output: slides.html
 
 - HTTP Request line - contains the following: 
 	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE 
-	- URI - is the specific page you're requesting (eg. index.html) 
-	- Protocol Version - is the version of HTTP (eg. HTTP/1.1)
+	- URI - is the specific page you're requesting (e.g. index.html) 
+	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
 - HTTP Request Header: - is a list of key/value pairs that is mainly about the client's environment
-	- host - is the main key/value pair of the Request Header - It gives us our server location (eg. example.com)
+	- host - is the main key/value pair of the Request Header - It gives us our server location (e.g. example.com)
 - HTTP Request Body: - an option body message
 
 -- md
@@ -35,11 +35,11 @@ output: slides.html
 ## The Response
 
 - HTTP Response Status-Line:
-	- Protocol Version - is the version of HTTP (eg. HTTP/1.1)
-	- Status Code - (eg. 200, 404)
-	- Description - a brief description of the status code (eg. ok, file now found)
+	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
+	- Status Code - (e.g. 200, 404)
+	- Description - a brief description of the status code (e.g. ok, file now found)
 - HTTP Response Header:
-	-  is a list of key/value pairs that tells us about our server environment (eg.Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux))
+	-  is a list of key/value pairs that tells us about our server environment (e.g.Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux))
 - HTTP Response Body:
 	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.   
 
@@ -68,14 +68,14 @@ output: slides.html
 - Every time you have a new django project, you want  to create it in a new environment. This Allows for local & production environment compatibility (ie same version of python, django and same dependencies). Which will be helpful in the future especially for debugging.
 - VirtualEnv allows us to control our environment - it essentially puts your projects into a virtual silo
 
---
+-- md
 
 ##Installing VirtualEnv/Django
 - Pip install virtualenv
 - Then to create a virtualenv it's - `$virtualenv env`
 - To activate the env it's - `$source env/bin/activate`
 - You are now within your virtual environment. Anything you install will be contained within this environment
-- Install Django - `$pip install https://www.djangoproject.com/download/1.7c2/tarball/`
+- Install Django: - `$pip install https://www.djangoproject.com/download/1.7c2/tarball/`
 
 --
 
@@ -158,7 +158,68 @@ output: slides.html
 - __mysite/wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
 
 
+-- sm
 
+##Django Settings
+
+- Your settings file contains a bunch of variables declaring the configuration of your project
+	- e.g. static file location & Time Zone  
+- Two Essential Setting Variables
+	-  DEBUG - a boolean value that you set to True or False
+		- When Debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debugged your error. 
+	- Installed Apps - a tuple of python packages that your project can use.
+		- Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your Installed Apps tuple to access it within your project.  
+
+-- md
+
+## Django Project vs. App
+
+- Project - is a collection of configuration and apps for a particular website
+- App - An app is a Web application that does something – e.g. a Weblog system, a database of public records or a simple poll app
+- A project can contain multiple apps and app can be in multiple projects.
+- create an app by executing `python manage.py startapp <app name>`
+- Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.
+
+-- sm
+
+## App File Structure/File overview
+
+- myapp/ - your root app directory should sit in the same directory as your project root
+- myapp/\_\_init\_\_.py - makes your app into a python package
+- mpyapp/admin.py - where you register your models to be viewed in your admin panel and customised how they will be displayed.
+- migrations/ - stores a history of all your model migrations - it's a type of version control for changes to your model.
+- models.py - where you write your the models for your application
+- tests.py - where you write tests for your app
+- views.py - controls how your server displays content to your client (browser or web service)
+
+-- md
+
+## Getting Started 
+
+- To run your projects/See it in a web browser - you have to execute the following commands:
+	- `$ python manage.py migrate`- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables according to the database settings in your mysite/settings.py file and the database migrations shipped with the app.
+	- `$ python manage.py runserver` - Starts your Django development server, a lightweight Web server written purely in Python.
+	- You could now go to `http://127.0.0.1:8000/` with your web browser and view your site.
+
+--
+
+## How it comes together
+
+- The browser via http makes a request to your server, using your input url as a resource
+- The server then looks for a matching url in your urlconfigs file (urls.py)
+- The matched url then calls a function or a class in the views.py file
+- The view then displays a template with context variables to a browser or a json object to an API 
+
+http request -> url -> view -> http response
+
+
+
+
+
+
+
+
+ 
 
 
 
