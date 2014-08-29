@@ -5,41 +5,34 @@ output: slides.html
 
 -- sm
 
-## How do web Apps work
+### How do web Apps work
 
-### Hyper Text Transport Protocol
+## Hyper Text Transport Protocol
 
 - HTTP - is the protocol that we use to communicate between client and server
 	- basically how our browser communicates with a server.
-    - Client / Server
 
-Client makes request to Server
-Server sends response to Client.
+### Client / Server
 
-One request - One response.
+- Client makes `request` to Server
+- Server sends `response` to Client.
 
-Sample request:
+-- sm blink
 
-  GET /foo.html HTTP/1.1
-  Host: www.example.com
-  Accept: text/html
-  Accept-Encoding: gzip,deflate
+##One request - One response.
 
-Sample response:
+![request overview](static/requestSnippet.png)
 
-  200 OK
-  Content-Type: text/html
-  Content-Length: 11
 
-  Welcome to my server!
+![request overview](static/responseSnippet.png)
 
 -- md
 
 ## The Request
 
-- HTTP Request line - contains the following: 
+- HTTP Request line - contains the following:
 	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE
-	- URI - is the specific page you're requesting (e.g. /index.html) 
+	- URI - is the specific page you're requesting (e.g. /index.html)
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
 - HTTP Request Header: - is a list of key/value pairs that is mainly about the client's environment
 	- Host - is the main key/value pair of the Request Header - It gives us our server location (e.g. example.com)
@@ -57,29 +50,34 @@ Sample response:
 - HTTP Response Header:
 	-  is a list of key/value pairs that tells us about our response
 - HTTP Response Body:
-	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.   
+	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.
+
+-- sm
+
+![request/response diagram](static/request-response.jpg)
+
+####Request Response Diagram
 
 -- md
 
-## Application servers vs web servers
+### Application servers vs web servers
 
 * "web server" is a general term for a program that answers HTTP requests.
 * Typically it serves static content.
-* An application server allows us to use business logic to generate content dynamically. 
-* Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a page. 
+* An application server allows us to use business logic to generate content dynamically.
+* Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a page.
 
---
+-- sm
 
 
-## Let's get started!
+### Let's get started!
 
-### Installing Python
-
-Linux:
+## Installing Python
+- Linux:
   - typically already installed
-Mac:
+- Mac:
   - already installed
-Windows:
+- Windows:
   - https://www.python.org/downloads/
 
 
@@ -90,45 +88,40 @@ Windows:
 
 --
 
-## Virtualenv - keeping things tidy
+### Virtualenv - keeping things tidy
 - Helps avoid version clashes
 - Separate package environment per env
 - Every time you have a new django project, you want  to create it in a new VirtualEnv.
 - Helps with consistancy: same package versions in development, testing, and production.
 
--- md
+-- sm
 
 ##Installing VirtualEnv/Django
 
-Linux:
+- Linux:
  - sudo pip install virtualenv
-Mac:
+- Mac:
  - brew install python-virtualenv
  - sudo pip install virtualenv
-Windows:
+- Windows:
  - pip install virtualenv
 
-### Create Virtualenv
+## Create/Activate Virtualenv
 
-`$ virtualenv foo`
-
-### Activate 
-
-`$ . foo/bin/activate`
-
+- Create Virtualenv- `$ virtualenv foo`
+- Activate Virtualenv - `$ . foo/bin/activate`
 - You are now within your virtual environment. Anything you install will be contained within this environment
 - Install Django: - `$ pip install https://github.com/django/django/archive/stable/1.7.x.tar.gz`
 
 --
 
-## Version Control
+### Version Control
 
-Why?  Because we make mistakes.
+- Why?  Because we make mistakes.
 
-### Git
-
-- Git is a version control program.
-- http://git-scm.com/downloads
+- Using Git
+	- Git is a version control program.
+	- http://git-scm.com/downloads
 
 -- sm
 
@@ -207,12 +200,12 @@ Why?  Because we make mistakes.
 ##Django Settings
 
 - Your settings file contains a bunch of variables declaring the configuration of your project
-	- e.g. static file location & Time Zone  
+	- e.g. static file location & Time Zone
 - Two Essential Setting Variables
 	-  DEBUG - a boolean value that you set to True or False
-		- When Debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debugged your error. 
+		- When Debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debugged your error.
 	- Installed Apps - a tuple of python packages that your project can use.
-		- Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your Installed Apps tuple to access it within your project.  
+		- Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your Installed Apps tuple to access it within your project.
 
 -- md
 
@@ -238,7 +231,7 @@ Why?  Because we make mistakes.
 
 -- md
 
-## Getting Started 
+## Getting Started
 
 - To run your projects/See it in a web browser - you have to execute the following commands:
 	- `$ python manage.py migrate`- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables according to the database settings in your mysite/settings.py file and the database migrations shipped with the app.
@@ -252,7 +245,7 @@ Why?  Because we make mistakes.
 - The browser via http makes a request to your server, using your input url as a resource
 - The server then looks for a matching url in your urlconfigs file (urls.py)
 - The matched url then calls a function or a class in the views.py file
-- The view then displays a template with context variables to a browser or a json object to an API 
+- The view then displays a template with context variables to a browser or a json object to an API
 
 http request -> url -> view -> http response
 
@@ -263,7 +256,7 @@ http request -> url -> view -> http response
 
 
 
- 
+
 
 
 
