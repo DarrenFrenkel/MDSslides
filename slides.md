@@ -7,27 +7,43 @@ output: slides.html
 
 ## How do web Apps work
 
+### Hyper Text Transport Protocol
+
 - HTTP - is the protocol that we use to communicate between client and server
 	- basically how our browser communicates with a server.
-- HTTP protocol - by protocol, I mean there is specific information that a client has to send to a server and vice versa to communicate properly
-- On the client side, the browser initiates communication to the server via a url with a request (http request) and sends over 3 main components:
-	-  HTTP Request line
-	-  HTTP Request Headers 
-	-  HTTP Request Body
--  On the Server side, the server receives the request and then responds (http response) by sending back 3 main components to the client:
-	-  HTTP Response Status-Line
-	-  HTTP Response Headers
-	-  HTTP Response Body
+    - Client / Server
+
+Client makes request to Server
+Server sends response to Client.
+
+One request - One response.
+
+Sample request:
+
+  GET /foo.html HTTP/1.1
+  Host: www.example.com
+  Accept: text/html
+  Accept-Encoding: gzip,deflate
+
+Sample response:
+
+  200 OK
+  Content-Type: text/html
+  Content-Length: 11
+
+  Welcome to my server!
+
 -- md
 
 ## The Request
 
 - HTTP Request line - contains the following: 
-	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE 
-	- URI - is the specific page you're requesting (e.g. index.html) 
+	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE
+	- URI - is the specific page you're requesting (e.g. /index.html) 
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
 - HTTP Request Header: - is a list of key/value pairs that is mainly about the client's environment
-	- host - is the main key/value pair of the Request Header - It gives us our server location (e.g. example.com)
+	- Host - is the main key/value pair of the Request Header - It gives us our server location (e.g. example.com)
+    - Accept - a list of content types the client can handle
 - HTTP Request Body: - an option body message
 
 -- md
@@ -37,9 +53,9 @@ output: slides.html
 - HTTP Response Status-Line:
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
 	- Status Code - (e.g. 200, 404)
-	- Description - a brief description of the status code (e.g. ok, file now found)
+	- Description - a brief description of the status code (e.g. ok, not found)
 - HTTP Response Header:
-	-  is a list of key/value pairs that tells us about our server environment (e.g.Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux))
+	-  is a list of key/value pairs that tells us about our response
 - HTTP Response Body:
 	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.   
 
@@ -47,58 +63,86 @@ output: slides.html
 
 ## Application servers vs web servers
 
-* A web server typically returns static web pages, ie we place an http request for a specific file name on a server (the url) and the web server returns that file 
-* However, An application server allows us to use business logic to return content dynamically. 
-	* ie we could route a url to a view and then that view could return a template or a json object.
-	* or we could easily change the template that the view renders or change the type of data it returns
+* "web server" is a general term for a program that answers HTTP requests.
+* Typically it serves static content.
+* An application server allows us to use business logic to generate content dynamically. 
 * Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a page. 
 
 --
 
 
+## Let's get started!
+
+### Installing Python
+
+Linux:
+  - typically already installed
+Mac:
+  - already installed
+Windows:
+  - https://www.python.org/downloads/
+
+
 ##Python/Package Manager
-- For all mac/linux users python comes pre-installed, for windows users time to upgrade (use vagrant)
 - Installing Pip - Pip is a package manager used to install & manage python programs. Pip allows us to install Django and other python packages
-- Download get-pip.py
+- Download get-pip.py https://bootstrap.pypa.io/get-pip.py
 - run python get-pip.py
 
 --
 
-##Environment
-- Every time you have a new django project, you want  to create it in a new environment. This Allows for local & production environment compatibility (ie same version of python, django and same dependencies). Which will be helpful in the future especially for debugging.
-- VirtualEnv allows us to control our environment - it essentially puts your projects into a virtual silo
+## Virtualenv - keeping things tidy
+- Helps avoid version clashes
+- Separate package environment per env
+- Every time you have a new django project, you want  to create it in a new VirtualEnv.
+- Helps with consistancy: same package versions in development, testing, and production.
 
 -- md
 
 ##Installing VirtualEnv/Django
-- Pip install virtualenv
-- Then to create a virtualenv it's - `$virtualenv env`
-- To activate the env it's - `$source env/bin/activate`
+
+Linux:
+ - sudo pip install virtualenv
+Mac:
+ - brew install python-virtualenv
+ - sudo pip install virtualenv
+Windows:
+ - pip install virtualenv
+
+### Create Virtualenv
+
+`$ virtualenv foo`
+
+### Activate 
+
+`$ . foo/bin/activate`
+
 - You are now within your virtual environment. Anything you install will be contained within this environment
-- Install Django: - `$pip install https://www.djangoproject.com/download/1.7c2/tarball/`
+- Install Django: - `$ pip install https://github.com/django/django/archive/stable/1.7.x.tar.gz`
 
 --
 
-##Git - Version Control
+## Version Control
 
-- Git is a version control program. It allows you to track changes you’ve made to your project/app.
-- You could install it by executing - `$sudo apt-get install git`
-- Make changes to your project and you could see a list of file changes with - `$git status`
-- You could see the actual changes to the files with - `$git diff <file-name>`
+Why?  Because we make mistakes.
+
+### Git
+
+- Git is a version control program.
+- http://git-scm.com/downloads
 
 -- sm
 
 ##Git Add/Commit
 
 - Git allows you to choose how to wrap your file changes.
-- For example, you’ve changed three files:
+- For example, you've changed three files:
 	- a url (urls.py),
-	- it’s relevant view (views.py)
+	- its relevant view (views.py)
 	- an unrelated change to your index.html.
 - Ideally you would like to commit the urls.py & views.py changes together and index.html as a separate commit.
 - Git facilitates this behaviour by first requiring you to place each change on a staging level. Here you could choose which file to set to staging (The urls.py & views.py). Then you could wrap all the files you’ve set to staging as one commit. Next you could stage and commit your change to the index.html. This change will be seen as a separate commit - `$git log`
 - To set a file to staged - `$git add <file name> ` or `$git add .` - adds all changes to staged
-- To commit staged files - `$git commit -m “<commit message>”`
+- To commit staged files - `$git commit -m <commit message>`
 
 --
 
