@@ -52,7 +52,7 @@ output: slides.html
 - HTTP Response Body:
 	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.
 
--- sm
+-- sm wd
 
 ![request/response diagram](static/request-response.jpg)
 
