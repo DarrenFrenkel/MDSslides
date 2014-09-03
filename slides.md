@@ -133,51 +133,86 @@ output: slides.html
 	- its relevant view (views.py)
 	- an unrelated change to your index.html.
 - Ideally you would like to commit the urls.py & views.py changes together and index.html as a separate commit.
-- Git facilitates this behaviour by first requiring you to place each change on a staging level. Here you could choose which file to set to staging (The urls.py & views.py). Then you could wrap all the files you’ve set to staging as one commit. Next you could stage and commit your change to the index.html. This change will be seen as a separate commit - `$git log`
+- Git facilitates this behaviour by first requiring you to place each change on a staging level. Here you could choose which file to set to staging (The urls.py & views.py). Then you could wrap all the files you’ve set to staging as one commit. Next you could stage and commit your change to the index.html.
+- To see a list of all changed files that haven't been committed - `$git status`
+
+
+-- md hd6
+
+## Git Status
+
+![git status](static/git-status.gif)
+
+######Git Status Message
+
 - To set a file to staged - `$git add <file name> ` or `$git add .` - adds all changes to staged
 - To commit staged files - `$git commit -m <commit message>`
+
+-- sm hd6 custom1 xtsm
+
+
+## Git Log
+
+![git Log](static/git-log.jpg)
+######Git Log Message
+
+- You could see a history of all your changes through the git log command - `$git log`
+- This command shows a list of all your commits starting with the most recent.
 
 --
 
 ## Github/Git Continued
 
-- Github is a remote repository where you could store your code base. Github allows you to easily view your files & commit history and share your code base.
+- Github is a remote repository where you could store your code base. Github allows you to easily view your files & commit history and share your code base. [Go to github](https://github.com/)
 - Git allows you to copy projects sitting on Github to your local computer (essentially sharing your code base) by using the git clone command. - `$ git clone <project url>`
 - You could then get any new changes from the remote repo by executing - `$git pull`. In addition, you could post any committed local changes to the remote repo using - `$git push`
 
--- sm
+-- xtsm hd6 custom1
 
-##Git Branches & Forks
+##Git Branches
 
-- Git Branches - a way to view your git commit history is as a list of linear nodes on a master branch. Where each node represents a successful change (commit) to your code base. Often you want to add a new feature to your app but want to retain the integrity of the master branch. We do this by branching off from the master branch, adding the new feature and then merging back in.
+![git Log](static/git-branches.png)
+######Git Branches
+
+- One way to view your git commit history is as a list of linear nodes on a master branch. Where each node represents a successful change (commit) to your code base.
+- Often you want to add a new feature to your app but want to retain the integrity of the master branch. We do this by branching off from the master branch, adding the new feature and then merging back in.
 - To create a branch - `$git checkout -b <branch name>`
 - To merge your branch back into master:
 	- first checkout master - `$git checkout master`
 	- then merge your branch into the master branch - `$git merge <branch name>`
-- When working on a remote repo often the repo owner would like to review your code before adding it to the code base. To implement this type of workflow, you would first fork the remote repo, add your code and then make a pull request.
-	- Fork - allows you to clone the public repo as a separate repo under your github account
-	- Pull request - sends a request to the repo owner to merge the changes from the clone on your account to the owner’s repo.
-	- The repo owner could then accept your pull request.
+
+-- xtsm hd6 custom2 custom1 wd
+
+##Github - Fork/Pull Request
+
+
+
+- When working on a remote repo often the repo owner would like to review your code before adding it to the code base. To implement this type of workflow, you would fork the remote repo from github, add your code and then make a pull request.
+
+![Github Fork](static/github-fork.png)
+
+- Fork - allows you to clone the public repo as a separate repo under your github account
+
+![Github Pull Request](static/github-pullRequest.png)
+
+- Pull request - sends a request to the repo owner to merge the changes from the clone on your account to the owner’s repo.
+
+- The repo owner could then accept your pull request.
 
 -- md
 
 ## Django - Start Project/Structure
 
-- To create a new django project - `$django-admin.py startproject <mysite>`
+- To create a new django project - `$django-admin.py startproject <project name>`
 - This command gives you the following out-of-the-box django file structure:
-	- mysite/
-		- manage.py
-		- mysite/
-			- __init__.py
-			- settings.py
-			- urls.py
-			- wsgi.py
+
+![Django Project Structure](static/django-project-structure.png)
 
 -- sm
 
 ## Django Project File Overview
 
-- __Outer mysite/__  - is just a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
+- __Outer bproject/__  - is just a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
 - __requirements.txt__ -  doesn’t come out of the box, you need to create the file yourself.
 	- place the name of all your third party python libraries inside this file and pip will install them - `$pip -R requirements.txt`
 - __manage.py__ -  A command-line utility that lets you interact with this Django project in various ways. Its two main activities are:
@@ -188,11 +223,11 @@ output: slides.html
 
 ## Django Project File Overview Continued
 
-- __inner mysite/__ - is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
-- __mysite/__init__.py__ - An empty file that tells Python that this directory should be considered a Python package
-- __mysite/settings.py__ - Settings/configuration for this Django project
-- __mysite/urls.py__ - The URL declarations for this Django project; a “table of contents” of your Django-powered site.
-- __mysite/wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
+- __inner bproject/__ - is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. bproject.urls).
+- __bproject/\_\_init\_\_.py__ - An empty file that tells Python that this directory should be considered a Python package
+- __bproject/settings.py__ - Settings/configuration for this Django project
+- __bproject/urls.py__ - The URL declarations for this Django project; a “table of contents” of your Django-powered site.
+- __bproject/wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
 
 
 -- sm
@@ -217,12 +252,15 @@ output: slides.html
 - create an app by executing `python manage.py startapp <app name>`
 - Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.
 
--- sm
+-- sm  custom2 hd6-custom
 
 ## App File Structure/File overview
 
-- myapp/ - your root app directory should sit in the same directory as your project root
-- myapp/\_\_init\_\_.py - makes your app into a python package
+![Django App Structure](static/django-app-structure.png)
+######Django App File Structure
+
+- poll/ - your root app directory should sit in the same directory as your project root
+- poll/\_\_init\_\_.py - makes your app into a python package
 - mpyapp/admin.py - where you register your models to be viewed in your admin panel and customised how they will be displayed.
 - migrations/ - stores a history of all your model migrations - it's a type of version control for changes to your model.
 - models.py - where you write your the models for your application
@@ -238,16 +276,17 @@ output: slides.html
 	- `$ python manage.py runserver` - Starts your Django development server, a lightweight Web server written purely in Python.
 	- You could now go to `http://127.0.0.1:8000/` with your web browser and view your site.
 
---
+-- extraxtsm
 
 ## How it comes together
+
+![Django Basic Request Response Structure](static/basic-request-response.png)
 
 - The browser via http makes a request to your server, using your input url as a resource
 - The server then looks for a matching url in your urlconfigs file (urls.py)
 - The matched url then calls a function or a class in the views.py file
-- The view then displays a template with context variables to a browser or a json object to an API
+- The view then displays a response to the browser
 
-http request -> url -> view -> http response
 
 
 

@@ -1,3 +1,11 @@
+.extraxtsm li{
+	font-size: .5em;
+}
+
+.xtsm li{
+	font-size: .64em;
+}
+
 .sm li{
 	font-size: .7em;
 }
@@ -8,4 +16,28 @@
 
 .wd section{
 	width: 1250px;
+}
+
+.hd6 h6{
+	margin: 0;
+}
+
+.hd6 p{
+	margin-bottom: 0;
+}
+
+.custom1 ul{
+	margin-top: 0;
+}
+
+.custom2 li{
+	font-size: .5em
+}
+
+.custom2 p{
+	margin: 0;
+}
+
+.hd6-custom h6{
+	margin-top: 0;
 }
