@@ -32,9 +32,9 @@ output: slides.html
 
 - HTTP Request line - contains the following:
 	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE
-	- URI - is the specific page you're requesting (e.g. /index.html)
+	- URI - is the specific resource you're requesting (e.g. /index.html)
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
-- HTTP Request Header: - is a list of key/value pairs that is mainly about the client's environment
+- HTTP Request Header: - is a list of key/value pairs that is about the request
 	- Host - is the main key/value pair of the Request Header - It gives us our server location (e.g. example.com)
     - Accept - a list of content types the client can handle
 - HTTP Request Body: - an option body message
@@ -47,10 +47,11 @@ output: slides.html
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
 	- Status Code - (e.g. 200, 404)
 	- Description - a brief description of the status code (e.g. ok, not found)
-- HTTP Response Header:
-	-  is a list of key/value pairs that tells us about our response
+- HTTP Response Header: - is a list of key/value pairs that tells us about our response
+    - Content Type - the sort of resource this is (image/jpeg, text/html, etc.)
+    - Content Length - how long the response body is.
 - HTTP Response Body:
-	- The actual response which is rendered in the client's window (The browser). The content of the body will be HTML code.
+	- The actual resource requested.
 
 -- sm wd
 
@@ -65,7 +66,7 @@ output: slides.html
 * "web server" is a general term for a program that answers HTTP requests.
 * Typically it serves static content.
 * An application server allows us to use business logic to generate content dynamically.
-* Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a page.
+* Essentially the main difference is an app server allows us to dynamically change the http response instead of being connected to a file.
 
 -- sm
 
@@ -82,7 +83,7 @@ output: slides.html
 
 
 ##Python/Package Manager
-- Installing Pip - Pip is a package manager used to install & manage python programs. Pip allows us to install Django and other python packages
+- Installing Pip - Pip is a package manager used to install & manage python programs. Pip allows us to install Django and other python packages easily
 - Download get-pip.py https://bootstrap.pypa.io/get-pip.py
 - run python get-pip.py
 
@@ -100,6 +101,7 @@ output: slides.html
 
 - Linux:
  - sudo pip install virtualenv
+ - or your distro's package manager (i.e. sudo apt-get install python-virtualenv)
 - Mac:
  - brew install python-virtualenv
  - sudo pip install virtualenv
@@ -109,11 +111,110 @@ output: slides.html
 ## Create/Activate Virtualenv
 
 - Create Virtualenv- `$ virtualenv foo`
-- Activate Virtualenv - `$ . foo/bin/activate`
-- You are now within your virtual environment. Anything you install will be contained within this environment
-- Install Django: - `$ pip install https://github.com/django/django/archive/stable/1.7.x.tar.gz`
+- Activate Virtualenv - `$ . foo/bin/activate` [Windows: foo/bin/activate.bat]
+- You are now within your virtual environment. Anything you install with pip will be contained within this environment
+- Install Django: - `$ pip install Django`
 
 --
+
+## Django - Start Project/Structure
+
+- To create a new django project - `$ django-admin.py startproject <project name>`
+- This command gives you the following out-of-the-box django file structure:
+
+![Django Project Structure](static/django-project-structure.png)
+
+-- sm
+
+## Django Project File Overview
+
+- __Project Workspace: bproject/__  - is just a container for your project. Its name doesn't matter to Django; you can rename it to anything you like.  All Python imports for code in your project and apps are relative to here.
+- __manage.py__ - A handy wrapper for django-admin.py for this project
+- __Projet Module: bprojet/bproject/ - this is the Python module of your app.
+
+--
+
+## Django Project Module Files Overview
+
+Inside your project module:
+
+- __\_\_init\_\_.py__ - An empty file that tells Python that this directory should be considered a Python package
+- __settings.py__ - Settings/configuration for this Django project
+- __urls.py__ - The URL declarations for this Django project; a 'table of contents' of your Django-powered site.
+- __wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
+
+
+-- sm
+
+##Django Settings
+
+- Your settings file contains a bunch of variables declaring the configuration of your project
+	- e.g. static file location & Time Zone
+- Two Essential Setting Variables
+	-  DEBUG - a boolean value that you set to True or False
+		- When Debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debugged your error.
+	- INSTALLED_APPS - a tuple of python packages that your project can use.
+		- Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your Installed Apps tuple to access it within your project.
+
+-- md
+
+## Django Project vs. App
+
+- Project - is a collection of configuration and apps for a particular website
+- App - An app is a Web application that does something – e.g. a Weblog system, a database of public records or a simple poll app
+- A project can contain multiple apps and app can be in multiple projects.
+- create an app by executing `python manage.py startapp <app name>`
+- Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.
+
+-- sm  custom2 hd6-custom
+
+## App File Structure/File overview
+
+![Django App Structure](static/django-app-structure.png)
+######Django App File Structure
+
+- poll/ - your root app directory should sit in the same directory as your project root
+- poll/\_\_init\_\_.py - makes your app into a python package
+- mpyapp/admin.py - where you register your models to be viewed in your admin panel and customised how they will be displayed.
+- migrations/ - stores a history of all your model migrations - it's a type of version control for changes to your model.
+- models.py - where you write your the models for your application
+- tests.py - where you write tests for your app
+- views.py - controls how your server displays content to your client (browser or web service)
+
+-- md
+
+## Getting Started
+
+- To run your projects/See it in a web browser - you have to execute the following commands:
+	- `$ python manage.py migrate`- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables according to the database settings in your mysite/settings.py file and the database migrations shipped with the app.
+	- `$ python manage.py runserver` - Starts your Django development server, a lightweight Web server written purely in Python.
+	- You could now go to `http://127.0.0.1:8000/` with your web browser and view your site.
+
+-- extraxtsm
+
+## How it comes together
+
+![Django Basic Request Response Structure](static/basic-request-response.png)
+
+- The browser via http makes a request to your server, using your input url as a resource
+- The server then looks for a matching url in your urlconfigs file (urls.py)
+- The matched url then calls a function or a class in the views.py file
+- The view then displays a response to the browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Version Control
 
@@ -200,105 +301,4 @@ output: slides.html
 - The repo owner could then accept your pull request.
 
 -- md
-
-## Django - Start Project/Structure
-
-- To create a new django project - `$django-admin.py startproject <project name>`
-- This command gives you the following out-of-the-box django file structure:
-
-![Django Project Structure](static/django-project-structure.png)
-
--- sm
-
-## Django Project File Overview
-
-- __Outer bproject/__  - is just a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
-- __requirements.txt__ -  doesn’t come out of the box, you need to create the file yourself.
-	- place the name of all your third party python libraries inside this file and pip will install them - `$pip -R requirements.txt`
-- __manage.py__ -  A command-line utility that lets you interact with this Django project in various ways. Its two main activities are:
-	- starting your local server - `$./manage.py runserver`
-	- Accessing your python shell - `$./manage.py shell`
-
---
-
-## Django Project File Overview Continued
-
-- __inner bproject/__ - is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. bproject.urls).
-- __bproject/\_\_init\_\_.py__ - An empty file that tells Python that this directory should be considered a Python package
-- __bproject/settings.py__ - Settings/configuration for this Django project
-- __bproject/urls.py__ - The URL declarations for this Django project; a “table of contents” of your Django-powered site.
-- __bproject/wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
-
-
--- sm
-
-##Django Settings
-
-- Your settings file contains a bunch of variables declaring the configuration of your project
-	- e.g. static file location & Time Zone
-- Two Essential Setting Variables
-	-  DEBUG - a boolean value that you set to True or False
-		- When Debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debugged your error.
-	- Installed Apps - a tuple of python packages that your project can use.
-		- Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your Installed Apps tuple to access it within your project.
-
--- md
-
-## Django Project vs. App
-
-- Project - is a collection of configuration and apps for a particular website
-- App - An app is a Web application that does something – e.g. a Weblog system, a database of public records or a simple poll app
-- A project can contain multiple apps and app can be in multiple projects.
-- create an app by executing `python manage.py startapp <app name>`
-- Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.
-
--- sm  custom2 hd6-custom
-
-## App File Structure/File overview
-
-![Django App Structure](static/django-app-structure.png)
-######Django App File Structure
-
-- poll/ - your root app directory should sit in the same directory as your project root
-- poll/\_\_init\_\_.py - makes your app into a python package
-- mpyapp/admin.py - where you register your models to be viewed in your admin panel and customised how they will be displayed.
-- migrations/ - stores a history of all your model migrations - it's a type of version control for changes to your model.
-- models.py - where you write your the models for your application
-- tests.py - where you write tests for your app
-- views.py - controls how your server displays content to your client (browser or web service)
-
--- md
-
-## Getting Started
-
-- To run your projects/See it in a web browser - you have to execute the following commands:
-	- `$ python manage.py migrate`- The migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables according to the database settings in your mysite/settings.py file and the database migrations shipped with the app.
-	- `$ python manage.py runserver` - Starts your Django development server, a lightweight Web server written purely in Python.
-	- You could now go to `http://127.0.0.1:8000/` with your web browser and view your site.
-
--- extraxtsm
-
-## How it comes together
-
-![Django Basic Request Response Structure](static/basic-request-response.png)
-
-- The browser via http makes a request to your server, using your input url as a resource
-- The server then looks for a matching url in your urlconfigs file (urls.py)
-- The matched url then calls a function or a class in the views.py file
-- The view then displays a response to the browser
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
