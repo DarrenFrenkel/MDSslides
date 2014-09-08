@@ -3,7 +3,7 @@ title: Melb Django School Slides
 style: style.css
 output: slides.html
 
--- sm
+-- extraxtsm
 
 ### How do web Apps work
 
@@ -17,18 +17,19 @@ output: slides.html
 - Client makes `request` to Server
 - Server sends `response` to Client.
 
+
+![browser-server-communication](static/browser-server-communication.png)
+
 -- sm blink
 
 ##One request - One response.
 
-![request overview](static/requestSnippet.png)
 
-
-![request overview](static/responseSnippet.png)
-
--- md
+-- xtsm
 
 ## The Request
+
+![request overview](static/requestSnippet.png)
 
 - HTTP Request line - contains the following:
 	- Method - 5 main methods - GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE
@@ -39,9 +40,11 @@ output: slides.html
     - Accept - a list of content types the client can handle
 - HTTP Request Body: - an option body message
 
--- md
+-- xtsm hd6 custom1
 
 ## The Response
+
+![request overview](static/responseSnippet.png)
 
 - HTTP Response Status-Line:
 	- Protocol Version - is the version of HTTP (e.g. HTTP/1.1)
