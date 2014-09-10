@@ -413,7 +413,7 @@ The Modern Server Environment
 - `python manage.py startapp <app name>`
 - Add your app to your INSTALLED_APPS tuple in your settings file
 
-## 4.0 Getting Started
+## 4. Getting Started
 
 - `$ python manage.py makemigrations`
 - `$ python manage.py migrate`
@@ -434,7 +434,7 @@ The Modern Server Environment
 
 - Go to `http://127.0.0.1:8000/` to see the output of your HTTP response.
 
-## 6 Version Control
+## 6. Version Control
 
 - Download Git - `http://git-scm.com/downloads`
 - Add Git to your project directory - `git init`
