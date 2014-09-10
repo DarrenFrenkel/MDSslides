@@ -332,6 +332,7 @@ The Modern Server Environment
 - To merge your branch back into master:
 	- first checkout master - `$git checkout master`
 	- then merge your branch into the master branch - `$git merge <branch name>`
+
 --
 
 ## 6.5 Github/Git Clone
@@ -422,13 +423,16 @@ The Modern Server Environment
 ## 5.1 The URL
 
 - Create the below file in `project-name/urls.py`
+
 ![urlconfig](static/urlconfig.png)
 
 ## 5.2 The View
 
 - Create the below file in `app-name/views.py`
+
 ![views](static/views.png)
-Go to `http://127.0.0.1:8000/` to see the output of your HTTP response.
+
+- Go to `http://127.0.0.1:8000/` to see the output of your HTTP response.
 
 ## 6 Version Control
 
