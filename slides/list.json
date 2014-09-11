@@ -1,4 +1,16 @@
 [
-    "index.md",
+    {
+        "filename": "markdown-demo.md",
+        "attr": {
+            "data-background": "#ff0000",
+            "data-id": "documentation"
+        }
+    },
+    "slide1.md",
+    "slide2.md",
+    "slide3.md",
+    "slide4.md",
+    "slide5.md",
+    "slide6.md",
     "fragments.html"
 ]
