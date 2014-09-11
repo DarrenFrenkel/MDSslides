@@ -132,3 +132,8 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #13daec; }
+
+.reveal .slides {
+  text-align: left; }
+.reveal h1, .reveal h2 {
+  text-align: center; }

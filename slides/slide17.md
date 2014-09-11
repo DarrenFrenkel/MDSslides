@@ -1,6 +1,6 @@
 ## 3.5 App File Structure/File overview
 
-![Django App Structure](static/django-app-structure.png)
+![Django App Structure](images/django-app-structure.png)
 ######Django App File Structure
 
 - **&lt;app name&gt;/** - Your root app directory. It should sit in the same directory as your project root.

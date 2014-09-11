@@ -5,4 +5,4 @@
 - Server sends `HTTP response` to Client.
 
 
-![browser-server-communication](static/browser-server-communication.png)
+![browser-server-communication](images/browser-server-communication.png)

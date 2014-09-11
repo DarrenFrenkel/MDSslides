@@ -70,3 +70,12 @@ $selectionColor: $white;
 
 // See ../../bower_components/reveal.js/css/theme/README.md
 // for further explanations on how reveal.js themes work.
+
+.reveal {
+    .slides {
+        text-align: left;
+    }
+    h1, h2 {
+        text-align: center;
+    }
+}

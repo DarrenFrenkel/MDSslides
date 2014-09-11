@@ -3,7 +3,7 @@
 ## 5.1  The URL
 
 ### Create a url
-![urlconfig](static/urlconfig.png)
+![urlconfig](images/urlconfig.png)
 
 * Create the above file in `project-name/urls.py`
 

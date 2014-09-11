@@ -1,6 +1,6 @@
 ## 6.2 Git Add/Commit/Status Commands
 
-![git status](static/git-status.gif)
+![git status](images/git-status.gif)
 
 ######Git Status Message
 

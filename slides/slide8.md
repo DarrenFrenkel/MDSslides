@@ -1,3 +1,3 @@
-![Django App](static/request-response.png)
+![Django App](images/request-response.png)
 
 The Modern Server Environment

@@ -1,6 +1,6 @@
 ### The Request
 
-![request overview](static/requestSnippet.png)
+![request overview](images/requestSnippet.png)
 
 - HTTP Request line - contains the following:
     - Method - 7 main methods - GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE.

@@ -1,6 +1,6 @@
 ## 5.2 The View
 
-![views](static/views.png)
+![views](images/views.png)
 
 ### Create a View
 

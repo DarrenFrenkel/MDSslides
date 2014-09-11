@@ -20,7 +20,7 @@ output: slides.html
 
 -- sm wd
 
-![Django App](static/request-response.png)
+![Django App](images/request-response.png)
 
 The Modern Server Environment
 -- sm
@@ -117,7 +117,7 @@ The Modern Server Environment
 
 ## 5.2 The View
 
-![views](static/views.png)
+![views](images/views.png)
 
 ### Create a View
 
@@ -133,7 +133,7 @@ The Modern Server Environment
 
 ## 5.3 How it comes together
 
-![Django Basic Request Response Structure](static/basic-request-response.png)
+![Django Basic Request Response Structure](images/basic-request-response.png)
 
 - The browser via HTTP makes a request to your server, using your input URL as a resource.
 - The server then looks for a matching URL in your urlconfigs file (urls.py).
@@ -169,7 +169,7 @@ The Modern Server Environment
 
 ## 6.2 Git Add/Commit/Status Commands
 
-![git status](static/git-status.gif)
+![git status](images/git-status.gif)
 
 ######Git Status Message
 
@@ -182,7 +182,7 @@ The Modern Server Environment
 
 ## 6.3 Git Log
 
-![git Log](static/git-log.jpg)
+![git Log](images/git-log.jpg)
 ######Git Log Message
 
 - You could see a history of all your changes through the git log command - `$git log`
@@ -193,7 +193,7 @@ The Modern Server Environment
 
 ## 6.4 Git Branches
 
-![git Log](static/git-branches.png)
+![git Log](images/git-branches.png)
 ######Git Branches
 
 - One way to view your git commit history is as a list of linear nodes on a master branch. Where each node represents a successful change (commit) to your code base.
@@ -218,11 +218,11 @@ The Modern Server Environment
 
 - When working on a remote repository (repo) often the repo's owner would like to review your code before adding it to the code base. To implement this type of workflow, you would fork the remote repo from Github, add your code and then make a pull request.
 
-![Github Fork](static/github-fork.png)
+![Github Fork](images/github-fork.png)
 
 - Fork - Allows you to clone a remote repo as a separate repo under your github account
 
-![Github Pull Request](static/github-pullRequest.png)
+![Github Pull Request](images/github-pullRequest.png)
 
 - Pull request - Sends a request to the repo owner to merge the changes from your clone to the owner’s repo.
 
@@ -294,13 +294,13 @@ The Modern Server Environment
 
 - Create the below file in `project-name/urls.py`
 
-![urlconfig](static/urlconfig.png)
+![urlconfig](images/urlconfig.png)
 
 ## 5.2 The View
 
 - Create the below file in `app-name/views.py`
 
-![views](static/views.png)
+![views](images/views.png)
 
 - Go to `http://127.0.0.1:8000/` to see the output of your HTTP response.
 

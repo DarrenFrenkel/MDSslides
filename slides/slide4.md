@@ -1,6 +1,6 @@
 ### The Response
 
-![response overview](static/responseSnippet.png)
+![response overview](images/responseSnippet.png)
 
 - HTTP Response Status-Line:
     - Protocol Version - is the version of HTTP (e.g. HTTP/1.1).

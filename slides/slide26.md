@@ -1,6 +1,6 @@
 ## 6.4 Git Branches
 
-![git Log](static/git-branches.png)
+![git Log](images/git-branches.png)
 ######Git Branches
 
 - One way to view your git commit history is as a list of linear nodes on a master branch. Where each node represents a successful change (commit) to your code base.
