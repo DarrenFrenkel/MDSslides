@@ -2,8 +2,9 @@
     {
         "filename": "markdown-demo.md",
         "attr": {
-            "data-background": "#ff0000",
-            "data-id": "documentation"
+            "data-id": "documentation",
+            "data-transition": "none",
+            "data-transition-speed": "fast"
         }
     },
     "slide1.md",
@@ -12,5 +13,5 @@
     "slide4.md",
     "slide5.md",
     "slide6.md",
-    "fragments.html"
+    "slide7.md"
 ]
