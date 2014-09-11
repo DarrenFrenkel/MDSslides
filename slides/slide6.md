@@ -2,7 +2,10 @@
 
 ![Server Side Script](images/CGI-request-response-cycle.png)
 
-* CGI protocol is a way for a script to communicate with a web server.
-* Server side scripts allow developers to add content dynamically to a file.
-* Html pages could now show database information & logic.
+* The CGI protocol allows a Web Server to run an external program to handle the request.
+* Server side scripts allow developers to generate content dynamically.
+* Html pages could now perform work and show database information.
 
+Problem:
+
+* Launching a separate task for each request is very slow.

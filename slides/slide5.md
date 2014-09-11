@@ -4,7 +4,7 @@
 ![response overview](images/static-file-response.gif)
 
 - "Web Server" is a general term for a program that answers HTTP requests with a HTTP response.
-- Typically it serves static content inside the r.esponse body.
-- Initially servers only returned static files
-- As we said in section 1.1, this is done by mapping a URI to a specific resource (file).
+- Typically it serves static content.
+- Initially servers only returned static files from disk.
+- Traditionally has been done by mapping a URI to a specific resource (file).
 

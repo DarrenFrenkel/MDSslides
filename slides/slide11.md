@@ -15,16 +15,16 @@ pip install virtualenv
 
 - Create Virtualenv:
     - Mac & Linux:
-        - `$ virtualenv foo`
+        - `$ virtualenv venvname`
     - Windows:
         - `virtualenv.exe venvname`
 - Activate Virtualenv:
     - Windows:
-        - `\foo\Scripts\activate`
+        - `foo\Scripts\activate`
     - Linux & Mac:
         - `$ source bin/activate`
 
-- You are now within your virtual environment. Anything you install with Pip will be contained within this environment.
+- Your virtual environment is now active.  Anything you install with Pip will be isolated to this environment.
 
 ## 2.4 Install Django
 

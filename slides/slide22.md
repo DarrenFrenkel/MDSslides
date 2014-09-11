@@ -1,6 +1,6 @@
 # 6 Version Control
 
-- Why?  Because we make mistakes.
+- Why?  Because we all make mistakes.
 
 - Using Git
     - Git is a version control program.
