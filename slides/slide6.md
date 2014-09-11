@@ -1,8 +1,8 @@
-## 1.2 The Server Evolution - How it generates an HTTP Response
+### Server Side Scripting - CGI Protocol
 
-![response overview](static/static-file-response.gif)
+![Server Side Script](static/CGI-request-response-cycle.png)
 
-- "Web Server" is a general term for a program that answers HTTP requests with a HTTP response.
-- Typically it serves static content inside the r.esponse body.
-- Initially servers only returned static files
-- As we said in section 1.1, this is done by mapping a URI to a specific resource (file).
+* CGI protocol is a way for a script to communicate with a web server.
+* Server side scripts allow developers to add content dynamically to a file.
+* Html pages could now show database information & logic.
+

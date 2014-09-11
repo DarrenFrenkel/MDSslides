@@ -1,7 +1,5 @@
-### Server Side Scripting - CGI Protocol
+### Application servers - The Modern Web (Django)
 
-![Server Side Script](static/CGI-request-response-cycle.png)
-
-* CGI protocol is a way for a script to communicate with a web server.
-* Server side scripts allow developers to add content dynamically to a file.
-* Html pages could now show database information & logic.
+* Now we have dedication Application servers that decouples the processes of getting a resource via URI.
+* Our application server has different files for URLs, views, templates & models.
+* We could now route our URI to a view which could render a template to be viewed by a user or generate context data to be consumed by an API.

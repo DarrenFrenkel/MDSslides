@@ -10,3 +10,4 @@
     - Host - is the main key/value pair of the request header. - It is the location of the server that we want to initiate communication (e.g. example.com).
     - Accept - A list of content types the client can handle.
 - HTTP Request Body: - An option body message.
+

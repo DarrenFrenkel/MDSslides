@@ -83,100 +83,35 @@ The Modern Server Environment
 
 -- xtsm hd6 custom1
 
-# 3. Django File Structure
 
-## 3.1 Start Project/Structure
-
-- To create a new django project - `$ django-admin.py startproject <project name>`
-- This command gives you the following out-of-the-box django file structure:
-
-![Django Project Structure](static/django-project-structure.png)
 
 -- sm
 
-## 3.2a Django Project File Overview
-
-- __Project Workspace: &lt;project name&gt;/__  - is just a container for your project. Its name doesn't matter to Django; you can rename it to anything you like. All Python imports for code in your project and apps are relative to here.
-- __manage.py__ - A handy wrapper for django-admin.py for this project.
-- __Projet Module: &lt;project name&gt;/&lt;project name&gt;/__ - This is the Python module of your app.
 
 --
 
-## 3.2b Django Project Module Files Overview
 
-### Inside your project module:
-
-- __\_\_init\_\_.py__ - An empty file that tells Python that this directory should be considered a Python package
-- __settings.py__ - Settings/configuration for this Django project.
-- __urls.py__ - The URL declarations for this Django project; a 'table of contents' of your Django-powered site.
-- __wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
 
 
 -- sm
 
-## 3.3 Django Settings
 
-- Your settings file contains a bunch of variables declaring the configuration for your project
-    - e.g. static file location & Time Zone
-- Two Essential Setting Variables:
-    -  DEBUG - A boolean value that you set to True or False
-        - When debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debug your error.
-    - INSTALLED_APPS - A tuple of python packages that your project can use.
-        - Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your installed apps tuple to access it within your project.
 
 -- md
 
-## 3.4 Django Project vs. App
 
-- Project - is a collection of configuration and apps for a particular website.
-- App - An app is a Web application that does something – e.g. a Weblog system, a database of public records or a simple poll app.
-- A project can contain multiple apps and app can be in multiple projects.
-- Create an app by executing - `python manage.py startapp <app name>`
-- Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.
 
 -- sm  custom2 hd6-custom
 
-## 3.5 App File Structure/File overview
 
-![Django App Structure](static/django-app-structure.png)
-######Django App File Structure
-
-- **&lt;app name&gt;/** - Your root app directory. It should sit in the same directory as your project root.
-- **\_\_init\_\_.py** - Makes your app into a python package.
-- **admin.py** - Where you register your models to be viewed in your admin panel and customised how they will be displayed.
-- **migrations/** - Stores a history of all your model migrations. It's a type of version control for changes to your models (ORM).
-- **models.py** - Where you write your the models for your application.
-- **tests.py** - Where you write tests for your app.
-- **views.py** - Controls how your server displays content to your client (browser or web service)
 
 -- md
 
-## 4.0 Getting Started
 
-- To view your project locally in a web browser - you have to execute the following commands:
-    - `$ python manage.py makemigrations` - Is responsible for creating new migrations for new models or changes you have made to existing models
-    - `$ python manage.py migrate`- The migrate command looks at the INSTALLED_APPS in settings and applies to the disk any necessary database tables.
-    - `$ python manage.py runserver` - Starts your Django development server, a lightweight Web server written purely in Python.
-    - You could now go to `http://127.0.0.1:8000/` with your web browser and view your site.
 
 -- sm
 
 
-# 5 Creating a basic HTTP request/response via Django
-
-## 5.1  The URL
-
-### Create a url
-![urlconfig](static/urlconfig.png)
-
-* Create the above file in `project-name/urls.py`
-
-### Django accessing that URL
-
-* Django determines the root URLconf module to use - `<project_name>.urls.py`
-* Django loads that Python module and looks for the variable urlpatterns. This should be a Python list of django.conf.urls.url() instances.
-* Django runs through each URL pattern, in order, and stops at the first one that matches the requested URL.
-* Once one of the regexes matches, Django imports and calls the given view, which is a simple Python function (or a class based view).
 
 -- sm
 
