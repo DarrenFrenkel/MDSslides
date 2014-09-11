@@ -21,3 +21,7 @@
         - `$ source bin/activate`
 
 - You are now within your virtual environment. Anything you install with Pip will be contained within this environment.
+
+## 2.4 Install Django
+
+- Install Django: - `$ pip install Django`

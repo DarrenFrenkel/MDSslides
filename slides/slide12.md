@@ -1,23 +1,8 @@
-## 2.3b Installing VirtualEnv
+# 3. Django File Structure
 
-- Linux:
- - `sudo pip install virtualenv`
-- Mac:
- - `sudo pip install virtualenv`
-- Windows:
- - `pip install virtualenv`
+## 3.1 Start Project/Structure
 
-### 2.3c Create/Activate Virtualenv
+- To create a new django project - `$ django-admin.py startproject <project name>`
+- This command gives you the following out-of-the-box django file structure:
 
-- Create Virtualenv:
-    - Mac & Linux:
-        - `$ virtualenv foo`
-    - Windows:
-        - `virtualenv.exe venvname`
-- Activate Virtualenv:
-    - Windows:
-        - `\foo\Scripts\activate`
-    - Linux & Mac:
-        - `$ source bin/activate`
-
-- You are now within your virtual environment. Anything you install with Pip will be contained within this environment.
+![Django Project Structure](static/django-project-structure.png)
