@@ -20,6 +20,7 @@
 // Colours
 $white:              white;
 $mds-green:        #1c5542;
+$mds-green-dark:   #093828;
 $mds-orange:       #f7941d;
 $mds-twitter-blue: #4099ff;
 $black:              black;
@@ -46,12 +47,12 @@ $headingFont: "adelle-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headingColor: $mds-green;
 $headingLineHeight: 0.9em;
 $headingLetterSpacing: 0.02em;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingTextShadow: none;
 $heading1TextShadow: $headingTextShadow;
 
 // Links and actions
-$linkColor: #13DAEC;
+$linkColor: $mds-twitter-blue;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
@@ -61,7 +62,7 @@ $selectionColor: $white;
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
 @mixin bodyBackground() {
-    background: url(/images/bg-pattern.png);
+    background: url(/images/bg-pattern.png) repeat;
 }
 
 // Theme template ------------------------------
@@ -73,9 +74,20 @@ $selectionColor: $white;
 
 .reveal {
     .slides {
+        margin: 0 auto;
+        max-width: 80%;
         text-align: left;
     }
     h1, h2 {
         text-align: center;
+    }
+
+    section {
+
+        img {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
     }
 }
