@@ -1,11 +1,15 @@
 ## 2.3b Installing VirtualEnv
 
-- Linux:
- - `sudo pip install virtualenv`
-- Mac:
- - `sudo pip install virtualenv`
-- Windows:
- - `pip install virtualenv`
+```bash
+# Linux:
+sudo pip install virtualenv
+
+# Mac:
+sudo pip install virtualenv
+
+# Windows:
+pip install virtualenv
+```
 
 ### 2.3c Create/Activate Virtualenv
 

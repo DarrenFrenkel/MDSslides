@@ -38,7 +38,7 @@ $backgroundColor: $white;
 
 // Primary/body text
 $mainFont: "adelle-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$mainFontSize: 36px;
+$mainFontSize: 32px;
 $mainColor: $mds-green;
 
 // Headings
@@ -73,16 +73,19 @@ $selectionColor: $white;
 // for further explanations on how reveal.js themes work.
 
 .reveal {
+    // we want to simulate centered, but have left aligned lists
     .slides {
         margin: 0 auto;
         max-width: 80%;
         text-align: left;
     }
-    h1, h2 {
-        text-align: center;
-    }
 
     section {
+        h1, h2, h3, h4 {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
 
         img {
             background: transparent;
