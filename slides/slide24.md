@@ -8,9 +8,8 @@ $ git status
 ```
 - To set a file to staged
 ```bash
-$ git add <file name>
-$ # or
-$git add . # adds all changed files to stage
+$ git add <file name> # or:
+$ git add . # adds all changed files to stage
 ```
 - To commit staged files
 ```
