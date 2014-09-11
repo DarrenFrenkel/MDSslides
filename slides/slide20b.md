@@ -1,11 +1,3 @@
-## 5.2 The View
-
-![views](images/views.png)
-
-### Create a View
-
-* Create the above file in `app-name/views.py`
-
 ### Consuming an HTTP Request and Sending a Response
 
 * The HttpRequest argument gets passed into the request parameter of the view function.

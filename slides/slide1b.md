@@ -1,5 +1,3 @@
-# 1.0 How do Web Apps Work
-
 ## 1.1 Client Server Communication
 
 ### Hyper Text Transport Protocol

@@ -1,7 +1,4 @@
-## 3.5 App File Structure/File overview
-
-![Django App Structure](images/django-app-structure.png)
-######Django App File Structure
+### Django App File Structure
 
 - **&lt;app name&gt;/** - Your root app directory. It should sit in your project workspace directory.
 - **\_\_init\_\_.py** - Marks your app as a python package.

@@ -4,7 +4,10 @@
 
 - Using Git
     - Git is a version control program.
-    - Download Git - `http://git-scm.com/downloads`
+    - Download Git: [http://git-scm.com/downloads](http://git-scm.com/downloads)
 
 - Add Git into your project directory
-    - git init
+
+```bash
+$ git init
+```
