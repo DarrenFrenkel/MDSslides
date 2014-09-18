@@ -12,11 +12,11 @@ C:\ virtualenv.exe venvname
 - Activate Virtualenv:
     - Windows:
 ```
-$ foo\Scripts\activate
+$ venvname\Scripts\activate
 ```
     - Linux & Mac:
 ```
-$ source bin/activate
+$ source venvname/bin/activate
 ```
 
 - Your virtual environment is now active.  Anything you install with Pip will be isolated to this environment.
