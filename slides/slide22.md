@@ -1,13 +1,6 @@
-# 6 Version Control
+# Clean Methods
 
-- Why?  Because we all make mistakes.
+Two types of clean methods
 
-- Using Git
-    - Git is a version control program.
-    - Download Git: [http://git-scm.com/downloads](http://git-scm.com/downloads)
-
-- Add Git into your project directory
-
-```bash
-$ git init
-```
+* clean_*field_name*() - where you are cleaning data input for a specific field
+* clean() - allows you to validate data against each other

@@ -1,8 +1,15 @@
 
-### Client / Server Interaction
+### HTML input fields
 
-- Client makes `HTTP request` to Server.
-- Server sends `HTTP response` to Client.
+- Below is a html form
+- It allows you to add and your details to the server
 
-
-![browser-server-communication](images/browser-server-communication.png)
+```html
+<form action="" method="post">
+    <input id="first-name" type="text" name="first_name">
+    <input id="middle-name" type="text" name="middle_name">
+    <input id="last-name" type="text" name="last_name">
+    <input id="email" type="text" name="email">
+    <input type="submit" value="OK">
+</form>
+```

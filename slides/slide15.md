@@ -1,9 +1,15 @@
-## 3.3 Django Settings
+## Auto Form Rendering Continued
 
-- Your settings file contains a bunch of variables declaring the configuration for your project
-    - e.g. static file location & Time Zone
-- Two Essential Setting Variables:
-    -  DEBUG - A boolean value that you set to True or False
-        - When debug is on (DEBUG = True), Django will display a detailed traceback on your error page, including metadata about your environment. This allows you to easily debug your error.
-    - INSTALLED_APPS - A tuple of python packages that your project can use.
-        - Whenever you install a new python package (e.g. django-braces, django-rest-framework) you need to add it to your installed apps tuple to access it within your project.
+- Your html will render as follows:
+
+```html
+<p><label for="id_first_name">First Name:</label>
+    <input id="id_first_name" type="text" name="first_name" maxlength="200" /></p>
+<p><label for="id_middle_name">Midde Name:</label>
+    <input type="text" name="middle_name" id="id_middle_name" maxlength="200" /></p>
+<p><label for="id_last_name">Last Name:</label>
+    <input type="text" name="last_name" id="id_last_name" maxlength="200" /></p>
+<p><label for="id_sender">Email:</label>
+    <input type="email" name="email" id="id_email" /></p>
+<!-- index.html -->
+```

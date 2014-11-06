@@ -1,10 +1,31 @@
-## 3.4 Django Project vs. App
+## Manually Rendering Forms
 
-- **Project** - is a collection of configuration and apps for a particular website.
-- **App** - An app is a Web application that provides functionality to the project - e.g. a Weblog system, user authentication, session management, or a simple poll app.
-- A project can contain multiple apps and app can be in multiple projects.
-- Create an app by executing
+- You could also rendering each form field individually
+
+- Your code will look as follows:
+
+```html
+{{ form.non_field_errors }}
+<div class="fieldWrapper">
+    {{ form.first_name.errors }}
+    <label for="id_first_name">First Name:</label>
+    {{ form.first_name }}
+</div>
+<div class="fieldWrapper">
+    {{ form.middle_name.errors }}
+    <label for="id_middle_name">Middle Name:</label>
+    {{ form.middle_name }}
+</div>
+<div class="fieldWrapper">
+    {{ form.last_name.errors }}
+    <label for="id_last_name">Last Name:</label>
+    {{ form.last_name }}
+</div>
+<div class="fieldWrapper">
+    {{ form.email.errors }}
+    <label for="id_email">Email</label>
+    {{ form.email }}
+</div>
+
+# index.html
 ```
-$ python manage.py startapp <app name>
-```
-- Whenever you add a new app to your project you need to add it your `INSTALLED_APPS` tuple to access it within your project.

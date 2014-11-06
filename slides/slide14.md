@@ -1,8 +1,17 @@
-## 3.2b Django Project Module Files Overview
+## Automatically Rendering your form
 
-### Inside your project module:
+- You could automatically render your forms as different html markup
+    - {{ form.as_table }} will render them as table cells wrapped in <tr> tags
+    - {{ form.as_p }} will render them wrapped in <p> tags
+    - {{ form.as_ul }} will render them wrapped in <li> tags
 
-- __\_\_init\_\_.py__ - An empty file that tells Python that this directory should be considered a Python package
-- __settings.py__ - Settings/configuration for this Django project.
-- __urls.py__ - The URL declarations for this Django project; a 'table of contents' of your Django-powered site.
-- __wsgi.py__ - An entry-point for WSGI-compatible web servers to serve your project.
+- To render your form with p tags your html template would look as follows:
+
+```html
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit" />
+</form>
+<!-- index.html -->
+```

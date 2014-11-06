@@ -1,8 +1,21 @@
-## 5.3 How it comes together
+## Calling Validators on ModelForms
 
-![Django Basic Request Response Structure](images/basic-request-response.png)
+```python
+from django.forms import ModelForm
+from .models import UserInfo
+from .validators import validate_first_letter_uppercase
 
-- The browser via HTTP makes a request to your server, using your input URL as a resource.
-- The server then looks for a matching URL in your urlconfigs file (urls.py).
-- The matched URL then calls a function or a class in the views.py file.
-- The view then displays a response to the browser.
+class UserInfoForm(ModelForm):
+
+    def __init__(self):
+        super(UserInfoForm, self).__init__(*args, **kwargs)
+        self.fields["first_name"].validators.append(validate_first_letter_uppercase)
+        self.fields["middle_name"].validators.append(validate_first_letter_uppercase)
+        self.fields["last_name"].validators.append(validate_first_letter_uppercase)
+
+    class Meta:
+        model = UserInfo
+        fields = ['first_name', 'middle_name', 'last_name', 'email']
+
+# forms.py
+```

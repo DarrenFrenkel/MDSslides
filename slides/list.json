@@ -1,54 +1,28 @@
 [
-    "slide1a.md",
-    "slide1b.md",
+    "slide1.md",
     "slide2.md",
-    "slide3a.md",
-    "slide3b.md",
-    {
-        "filename": "slide4a.md",
-        "attr": {
-            "data-class": "slide--small"
-        }
-    },
-    "slide4b.md",
-    "slide4c.md",
+    "slide3.md",
+    "slide4.md",
+    "slide5a.md",
     "slide5.md",
     "slide6.md",
 	"slide7.md",
 	"slide8.md",
-
-    "slide9a.md",
-    "slide9b.md",
-    "slide9c.md",
+    "slide9.md",
     "slide10.md",
-
-    "slide11a.md",
-    "slide11b.md",
-	"slide11c.md",
-
-    "slide12a.md",
-	"slide12b.md",
+    "slide11.md",
+    "slide12.md",
 	"slide13.md",
 	"slide14.md",
 	"slide15.md",
 	"slide16.md",
-    "slide17a.md",
-	"slide17b.md",
+    "slide17.md",
 	"slide18.md",
-    "slide19a.md",
-    "slide19b.md",
-	"slide19c.md",
-    "slide20a.md",
-	"slide20b.md",
+    "slide19.md",
+    "slide20.md",
 	"slide21.md",
 	"slide22.md",
 	"slide23.md",
-	"slide24.md",
-	"slide25.md",
-    "slide26a.md",
-	"slide26b.md",
-	"slide27.md",
-    "slide28a.md",
-	"slide28b.md"
+	"slide24.md"
 ]
 

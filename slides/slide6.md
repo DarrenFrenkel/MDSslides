@@ -1,11 +1,17 @@
-### Server Side Scripting - CGI Protocol
+### Using Django Forms
 
-![Server Side Script](images/CGI-request-response-cycle.png)
+- We could add the following form fields to our forms.py file
 
-* The CGI protocol allows a Web Server to run an external program to handle the request.
-* Server side scripts allow developers to generate content dynamically.
-* Html pages could now perform work and show database information.
+```python
+from django import form
 
-Problem:
+class UserInfoForm(forms.Form):
+    first_name = forms.CharField(max_length=100)
+    middle_name = forms.CharField(max_length=100, required=False)
+    last_name = forms.CharField(max_length=100)
+    email = forms.EmailField()
 
-* Launching a separate task for each request is very slow.
+
+# forms.py
+```
+

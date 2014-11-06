@@ -1,7 +1,7 @@
-## Validating fields against each other
+### Our UserInfo Model
 
-- Lets say we add a verify email field
-- We want to make sure you've entered the correct email.
+- Below is our UserInfo Model
+- We would like to save data from our html form as a UserInfo instance
 
 ```python
 class UserInfo(models.Model):
@@ -9,9 +9,6 @@ class UserInfo(models.Model):
     middle_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
-    verify_email = models.EmailField(max_length=200)
 
 model.py
 ```
-
-

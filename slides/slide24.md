@@ -1,17 +1,18 @@
-## 6.2 Git Add/Commit/Status Commands
+## Validating fields against each other continued
 
-![git status](images/git-status.gif)
+```python
+from django.forms import ModelForm
+from .models import UserInfo
 
-- To see a list of all changed files that haven't been committed
-```bash
-$ git status
-```
-- To set a file to staged
-```bash
-$ git add <file name> # or:
-$ git add . # adds all changed files to stage
-```
-- To commit staged files
-```bash
-$ git commit -m <commit message>
+class UserInfoForm(ModelForm):
+    class Meta:
+        model = UserInfo
+        fields = ['first_name', 'middle_name', 'last_name', 'email', 'verify_email']
+
+    def clean(self):
+        if self.cleaned_data['email'] != self.cleaned_data['verify_email']:
+            msg = u"Please make sure you've entered the correct email"
+            raise ValidationError(msg)
+
+# forms.py
 ```

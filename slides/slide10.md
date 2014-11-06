@@ -1,6 +1,11 @@
-## 2.3a Virtualenv - keeping things tidy
+## Benefits of ModelForms
 
-- Helps avoid version clashes
-- Separate package environment per env
-- Helps with consistancy: same package versions in development, testing, and production.
-- Every time you have a new django project, you want to create it a new VirtualEnv.
+- ModelForms allow us to connect our forms to our models
+- ModelForms is a form class that allows us to optimise many of the form design patters
+    - Prevents repetition by connecting forms to models (DRY Principle)
+    - Easily save model instances
+
+
+
+
+
